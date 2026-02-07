@@ -1,8 +1,3 @@
-Prerequisites
-Pastikan Anda memiliki:
-
-Terraform terinstall.
-
-AWS CLI terkonfigurasi (aws configure).
-
-Key Pair EC2 di region target (misal: my-key).
+### 📂 Projects
+- **[RDS Single-AZ vs Multi-AZ](./database/rds-single-vs-multi-az)**: 
+  Analisis failover database AWS. [Lihat Arsitektur ↗️](./database/rds-single-vs-multi-az/architecture/diagram.png)
