@@ -3,10 +3,10 @@ output "ec2_client_public_ip" {
   value       = aws_instance.web_client.public_ip
 }
 
-output "ec2_ssh_command" {
-  description = "Command to SSH into EC2"
-  value       = "ssh -i /path/to/${var.ssh_key_name}.pem ec2-user@${aws_instance.web_client.public_ip}"
-}
+#output "ec2_ssh_command" {
+#  description = "Command to SSH into EC2"
+#  value       = "ssh -i /path/to/${var.ssh_key_name}.pem ec2-user@${aws_instance.web_client.public_ip}"
+#}
 
 output "rds_endpoint_single_az" {
   description = "Connection endpoint for Single-AZ RDS"
