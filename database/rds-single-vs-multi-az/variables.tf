@@ -22,10 +22,10 @@ variable "ec2_instance_type" {
   default     = "t3.micro"
 }
 
-variable "ssh_key_name" {
-  description = "Name of existing SSH Key Pair in AWS for EC2 access"
-  type        = string
-}
+#variable "ssh_key_name" {
+#  description = "Name of existing SSH Key Pair in AWS for EC2 access"
+#  type        = string
+#}
 
 variable "db_username" {
   description = "Master username for RDS"
