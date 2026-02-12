@@ -35,3 +35,13 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+
+# --- Kunci & Rahasia (INI PALING PENTING) ---
+*.pem
+*.ppk
+*.key
+*.p12
+*.pfx
+.env
+.env.*
