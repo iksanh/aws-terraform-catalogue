@@ -125,7 +125,13 @@ resource "aws_rds_cluster" "aurora_cluster" {
   backup_retention_period = 1
   preferred_backup_window = "07:00-09:00"
   skip_final_snapshot     = true
-  
+
+ 
+
+  # --- FITUR BARU: Export Log ke CloudWatch ---
+  # Opsional: Mengirim log error, slow query, dll ke CloudWatch
+  enabled_cloudwatch_logs_exports = ["audit", "error", "general", "slowquery"]
+
   db_subnet_group_name    = aws_db_subnet_group.aurora_subnet_group.name
   vpc_security_group_ids  = [aws_security_group.aurora_sg.id]
   
@@ -135,12 +141,14 @@ resource "aws_rds_cluster" "aurora_cluster" {
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
-  count              = 1
+  count              = 2
   identifier         = "${var.project_name}-instance-${count.index}"
   cluster_identifier = aws_rds_cluster.aurora_cluster.id
   instance_class     = var.aurora_instance_class
   engine             = aws_rds_cluster.aurora_cluster.engine
   engine_version     = aws_rds_cluster.aurora_cluster.engine_version
+
+
 }
 
 # --- 4. EC2 Bastion Host ---
